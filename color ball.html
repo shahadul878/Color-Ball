@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function display(){
+            let totalColor = document.getElementById("color").value;
+            let totalcircle = document.getElementById("circle").value;
+            alert("You added "+totalColor+" Colors and "+totalcircle+" Circles");
+            let body = document.getElementsByTagName('body')[0];
+            let colors =[];
+            console.log(colors);
+            for (i=0; i<totalColor;i++){
+                var randomColor = Math.floor(Math.random()*16777215).toString(16);  
+                colors.push("#"+randomColor) ;
+            }
+
+            for(i=0;i<totalcircle;i++){
+                let div=document.createElement('div');
+                let x =Math.random()*1000;
+                let y=Math.random()*400;
+                
+                let color = colors[Math.floor(Math.random()*colors.length)];
+
+                div.style.cssText="position:absolute;left:"+x+"px;top:"+y+"px;width:50px;height:50px;border-radius:50%;background:"+color+";";
+                body.appendChild(div);
+
+            }
+         
+        }
+
+    </script>
+</head>
+<body onload="">
+    <form action="">
+        <input type="number" placeholder="How many color need?" id="color" name="color">
+        <input type="number" placeholder="How many circle need?" id="circle"name="circle">
+        <input type="button" onclick="display()" id="Submit"  value="Submit">
+    </form>
+</body>
+</html>
